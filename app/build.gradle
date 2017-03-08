@@ -1,18 +1,29 @@
-apply plugin: 'com.android.library'
-//apply from: 'https://raw.githubusercontent.com/adwiv/android-fat-aar/master/fat-aar.gradle'
-apply from: 'fat-aar.gradle'
+apply from: "${rootProject.rootDir}/common_config.gradle"
+if(project.ext.isLib){
+    apply plugin: 'com.android.library'
+    apply from: 'fat-aar.gradle'
+}else {
+    apply plugin: 'com.android.application'
+}
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    compileSdkVersion project.ext.compileSdkVersion
+
+    buildToolsVersion project.ext.buildToolsVersion
+
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 24
-        versionCode 1
-        versionName "1.0"
+        if (!project.ext.isLib) {
+            applicationId project.ext.applicationId
+        }
+        minSdkVersion project.ext.minSdkVersion
+        targetSdkVersion project.ext.targetSdkVersion
+        versionCode project.ext.versionCode
+        versionName project.ext.versionName
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled project.ext.minifyEnabled
+            zipAlignEnabled project.ext.zipAlignEnabled
+            shrinkResources project.ext.shrinkResources
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -20,7 +31,17 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    embedded project(':liba')
-    embedded project(':libb')
-    embedded project(':libc')
+    if(project.ext.isLib) {
+        embedded project(':liba')
+        embedded project(':libb')
+        embedded project(':libc')
+    }else{
+        androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        })
+        compile 'com.android.support:appcompat-v7:24.2.1'
+        compile project(':liba')
+        compile project(':libb')
+        compile project(':libc')
+    }
 }
