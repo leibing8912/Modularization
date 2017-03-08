@@ -10,7 +10,7 @@ project.ext {
     versionName  = "1.0"
     // lib config
     isDebug = false;
-    isLib = false;
+    isLib = true;
     // proguard config
     minifyEnabled =  false
     zipAlignEnabled = false

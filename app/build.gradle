@@ -21,9 +21,9 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled project.ext.minifyEnabled
-            zipAlignEnabled project.ext.zipAlignEnabled
-            shrinkResources project.ext.shrinkResources
+//            minifyEnabled project.ext.minifyEnabled
+//            zipAlignEnabled project.ext.zipAlignEnabled
+//            shrinkResources project.ext.shrinkResources
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
