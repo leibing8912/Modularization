@@ -8,6 +8,7 @@ import android.view.View;
 import cn.jianke.liba.LibaActivity;
 import cn.jianke.liba.StringUtil;
 import cn.jianke.libb.DensityUtil;
+import cn.jianke.libb.LibbActivity;
 import cn.jianke.libc.PackageUtil;
 
 /**
@@ -35,6 +36,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 turnToNewPage(LibaActivity.class);
+            }
+        });
+        findViewById(R.id.btn_go_to_module_b).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                turnToNewPage(LibbActivity.class);
             }
         });
     }
