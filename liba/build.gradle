@@ -23,6 +23,8 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    // 将Module对jar的依赖关系从compile改为provided，这样jar文件将只能提供给对应的module使用，而外部无法通过编译获取。
+//    provided fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })

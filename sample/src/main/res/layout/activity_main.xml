@@ -23,4 +23,42 @@
             android:layout_height="wrap_content"
             android:text="跳转到moduleB"/>
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ly_img_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_centerInParent="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用aar库中图片库加载图片"/>
+        <ImageView
+            android:id="@+id/iv_img_one"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="8dp"
+            android:scaleType="fitXY" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/ly_img_one">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用自身工程依赖的图片库加载图片"/>
+        <ImageView
+            android:id="@+id/iv_img_two"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:scaleType="fitXY"
+            android:layout_marginTop="8dp"/>
+    </LinearLayout>
 </RelativeLayout>

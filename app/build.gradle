@@ -32,6 +32,9 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     if(project.ext.isLib) {
+        // 图片加载库采用Glide框架
+        compile 'com.github.bumptech.glide:glide:3.7.0'
+        compile 'jp.wasabeef:glide-transformations:2.0.1'
         embedded project(':liba')
         embedded project(':libb')
         embedded project(':libc')
@@ -40,6 +43,9 @@ dependencies {
             exclude group: 'com.android.support', module: 'support-annotations'
         })
         compile 'com.android.support:appcompat-v7:24.2.1'
+        // 图片加载库采用Glide框架
+        compile 'com.github.bumptech.glide:glide:3.7.0'
+        compile 'jp.wasabeef:glide-transformations:2.0.1'
         compile project(':liba')
         compile project(':libb')
         compile project(':libc')
